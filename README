@@ -2,8 +2,10 @@ A *simple* shell script to load up a Magento environment and execute PHP code
 Very experimental and should only be ran on dev servers
 
 REQUIRES 
-  php readline
   php pcntl
+
+OPTIONAL
+  php readline (no history, autocomplete or cursor support)
 
 KNOWN ISSUES
 ctrl+c doesn't exit app until you return/enter (but at least it'll save your history)
