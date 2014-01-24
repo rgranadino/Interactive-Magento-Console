@@ -17,5 +17,9 @@ INSTALL
 place in your include path or base magento directory, make sure it's executable
 must be ran from base magento directory
 
+USAGE
+imc [store_code]
+
+INFO
 History File Saved at ~/.imc_history
 Log File Saved at ~/imc.log

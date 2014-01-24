@@ -14,7 +14,6 @@ $baseDir = getcwd();
 //not sure if this is necessary, ported over from cron.php script
 $_SERVER['SCRIPT_NAME'] = $baseDir.'/index.php';
 $_SERVER['SCRIPT_FILENAME'] = $baseDir.'/index.php';
-Mage::app()->setUseSessionInUrl(false);
 try {
     ini_set('display_errors', 1);
     ini_set('log_errors', 1);
@@ -22,7 +21,11 @@ try {
         ini_set('error_log', $_SERVER['HOME'] . '/imc.log');
     }
     error_reporting(E_ALL);
-    Mage::app('','store');
+    $storeCode = '';
+    if (isset($argv[1])) {
+        $storeCode = $argv[1];
+    }
+    Mage::app($storeCode, 'store')->setUseSessionInUrl(false);
     IMC::getInstance()->read();
 } catch (Exception $e) {
     Mage::printException($e);
